@@ -9,4 +9,4 @@ edition = "2021"
 axum = "0.7.2"
 tokio = { version = "1.35.1", features = ["macros", "rt-multi-thread"] }
 utoipa = { version = "4.1.0", features = ["axum_extras"] }
-utoipa-swagger-ui = "5.0.0"
+utoipa-swagger-ui = { version = "5.0.0", features = ["axum"] }
