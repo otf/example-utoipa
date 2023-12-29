@@ -7,6 +7,7 @@ edition = "2021"
 
 [dependencies]
 axum = "0.7.2"
+serde = "1.0.193"
 tokio = { version = "1.35.1", features = ["macros", "rt-multi-thread"] }
 utoipa = { version = "4.1.0", features = ["axum_extras"] }
 utoipa-swagger-ui = { version = "5.0.0", features = ["axum"] }
