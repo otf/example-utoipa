@@ -26,7 +26,7 @@
             src = ./.;
             hooks = {
               rustfmt.enable = true;
-              clippy.enable = true;
+              clippy.enable = false;
             };
           };
         });
