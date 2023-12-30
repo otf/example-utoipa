@@ -1,0 +1,20 @@
+name: "Build legacy Nix package on Ubuntu"
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v22
+        with:
+          extra_nix_config: |
+            system-features = nixos-test kvm
+      - uses: cachix/cachix-action@v12
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
+      - name: Check flakes
+        run: nix flake check
+      - name: Building package
+        run: nix build
