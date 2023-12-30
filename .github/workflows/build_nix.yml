@@ -12,7 +12,6 @@ jobs:
         with:
           extra_nix_config: |
             system-features = nixos-test kvm
-      - uses: cachix/cachix-action@v12
       - uses: DeterminateSystems/magic-nix-cache-action@v2
       - name: Check flakes
         run: nix flake check
