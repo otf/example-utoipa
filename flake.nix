@@ -63,8 +63,13 @@
         };
       });
 
-    checks = forAllSystems ({pre-commit-check, ...}: {
+    checks = forAllSystems ({pkgs, pre-commit-check, ...}: {
       inherit pre-commit-check;
+
+      system-test = pkgs.nixosTest (import ./tests {
+        inherit pkgs;
+        package = self.packages.x86_64-linux.default;
+      });
     });
 
     formatter = forAllSystems ({pkgs, ...}: pkgs.rustfmt);
