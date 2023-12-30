@@ -143,11 +143,29 @@
         "type": "github"
       }
     },
+    "nodejs-client": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-VbEfntT9H/3Ua943c0pLTICCe471RCj+gPnllhkQl0Y=",
+        "path": "/nix/store/wc1y9gc61gxqj24mrr3gjmml4h8v62c7-source/examples/nodejs-client",
+        "type": "path"
+      },
+      "original": {
+        "path": "/nix/store/wc1y9gc61gxqj24mrr3gjmml4h8v62c7-source/examples/nodejs-client",
+        "type": "path"
+      }
+    },
     "root": {
       "inputs": {
         "naersk": "naersk",
         "nix-pre-commit-hooks": "nix-pre-commit-hooks",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "nodejs-client": "nodejs-client"
       }
     },
     "systems": {

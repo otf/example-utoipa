@@ -1,5 +1,6 @@
 { pkgs
 , package
+, test-package
 }:
 
 {
@@ -13,6 +14,9 @@
       networking.firewall.enable = false;
     };
     client = {
+      environment.systemPackages = [
+        test-package
+      ];
     };
   };
 
@@ -22,6 +26,6 @@
     with subtest('connect to server'):
       client.wait_for_unit('default.target');
       server.wait_for_unit('server.service');
-      assert 'lightning' in client.succeed('curl http://server:3000/pets/1')
+      client.succeed('nodejs-client');
   '';
 }

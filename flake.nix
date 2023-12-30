@@ -8,6 +8,10 @@
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
+    nodejs-client = {
+      url = "./examples/nodejs-client";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -15,6 +19,7 @@
     nixpkgs,
     naersk,
     nix-pre-commit-hooks,
+    nodejs-client
   }: let
     supportedSystems = ["aarch64-linux" "i686-linux" "x86_64-linux" "aarch64-darwin" "x86_64-darwin"];
     forAllSystems = f:
@@ -69,6 +74,7 @@
       system-test = pkgs.nixosTest (import ./tests {
         inherit pkgs;
         package = self.packages.x86_64-linux.default;
+        test-package = nodejs-client.packages.x86_64-linux.default;
       });
     });
 
